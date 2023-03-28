@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PhysicianAvailability_FluentAPI\PhysicianAvailability_FluentAPI.csproj" />
+    <ProjectReference Include="..\PhysicianAvailability_Models\PhysicianAvailability_Models.csproj" />
+  </ItemGroup>
+
+</Project>
