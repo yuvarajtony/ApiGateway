@@ -1,5 +1,5 @@
 using AutoFixture;
-using Bussiness_Logic;
+using Patient_Bussiness_Logic;
 using EF_Layer.Entities;
 using EF_Layer;
 using FluentAssertions;

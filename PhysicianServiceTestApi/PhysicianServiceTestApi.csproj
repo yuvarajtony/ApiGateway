@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Patient_Bussiness_Logic\Patient_Business_Logic.csproj" />
     <ProjectReference Include="..\PhysicianAvailability_BussinessLogic\PhysicianAvailability_BussinessLogic.csproj" />
     <ProjectReference Include="..\PhysicianAvailability_Models\PhysicianAvailability_Models.csproj" />
     <ProjectReference Include="..\PhysicianAvailability_Service\PhysicianAvailability_Service.csproj" />

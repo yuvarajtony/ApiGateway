@@ -1,6 +1,6 @@
 using AutoFixture;
 using Moq;
-using BussinessLogic;
+using Physician_BussinessLogic;
 using PhysicianAvailabilityService.Controllers;
 using Models;
 using FluentAssertions;

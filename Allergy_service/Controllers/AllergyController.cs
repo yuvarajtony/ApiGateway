@@ -1,7 +1,7 @@
 ﻿using Allergy_Business_Logic;
 using EntityApi.Entities;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.Data.SqlClient;
 
 namespace Capstone_Project.Controllers
 {
@@ -15,14 +15,28 @@ namespace Capstone_Project.Controllers
         [HttpGet("Fetch/{VisitId}")]
         public IActionResult Get([FromRoute] int VisitId)
         {
-            var allergy = logic.Get(VisitId);
-            if (allergy != null)
+            //var allergy = logic.Get(VisitId);
+            //if (allergy != null)
+            //{
+            //    return Ok(allergy);
+            //}
+            //else
+            //{
+            //    return BadRequest("No Details Found");
+            //}
+
+            try
             {
+                var allergy = logic.Get(VisitId);
                 return Ok(allergy);
             }
-            else
+            catch (SqlException ex)
             {
-                return BadRequest("No Details Found");
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
         [HttpPost("Add")]
