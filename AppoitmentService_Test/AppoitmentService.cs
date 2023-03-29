@@ -1,10 +1,10 @@
 using AppointmentsApi.Controllers;
 using AutoFixture;
-using Appointment_BusinessLogic;
+using BusinessLogic;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 //using FluentApi.Entities;
-using Appointment_Models;
+using Models;
 using Moq;
 
 namespace AppoitmentService_Test
