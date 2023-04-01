@@ -91,6 +91,11 @@ namespace Patient_Bussiness_Logic
             return map.mapVisitDetailEM(repo.GetPaticularVisitById(id));
         }
 
+        public Visit_Details_M GetVisitByAcceptanceNo(int id)
+        {
+            return map.mapVisitDetailEM(repo.GetbyAcceptanceId(id));
+        }
+
         //Prescription
 
         public Prescription_M AddPrescription(Prescription_M prescription_M)
@@ -157,6 +162,11 @@ namespace Patient_Bussiness_Logic
         {
             return context.Tests.FirstOrDefault(x => x.Id == id);
 
+        }
+
+        public Test DeleteTestByID(int id)
+        {
+            return map.mapTestME(map.mapTestEM(repo.DeleteTest(id)));
         }
 
     }

@@ -22,6 +22,8 @@ namespace EF_Layer
         VisitDetail AddVisitDetails(VisitDetail visitDetail);
         public List<VisitDetail> GetVisitById(int id);
         public VisitDetail GetPaticularVisitById(int id);
+        public VisitDetail GetbyAcceptanceId(int id);
+
 
 
         //for prescription
@@ -35,6 +37,8 @@ namespace EF_Layer
 
         public int GetTestIdByName(string name);
         public Test UpdateTest(Test test);
+        public Test DeleteTest(int TestID);
+
 
 
     }

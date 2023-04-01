@@ -12,7 +12,8 @@ namespace Patient_Services.Controllers
     {
         ILogic? _logic;
 
-        public TestController(ILogic logic) { 
+        public TestController(ILogic logic)
+        {
             _logic = logic;
         }
 
@@ -21,8 +22,8 @@ namespace Patient_Services.Controllers
         {
             try
             {
-               var createdTest= _logic.AddTest(test);
-               return Ok(createdTest);
+                var createdTest = _logic.AddTest(test);
+                return Ok(createdTest);
             }
             catch (SqlException sqlE)
             {
@@ -31,7 +32,7 @@ namespace Patient_Services.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
-            } 
+            }
 
         }
 
@@ -49,18 +50,18 @@ namespace Patient_Services.Controllers
                     return BadRequest();
                 }
             }
-            catch(SqlException sqlE)
+            catch (SqlException sqlE)
             {
                 return BadRequest(sqlE.Message);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest(ex.Message);
             }
         }
 
         [HttpGet("GetTestIdbyname/{name}")]
-        
+
         public IActionResult GetTestIdByName([FromRoute] string name)
         {
             try
@@ -74,9 +75,9 @@ namespace Patient_Services.Controllers
                     return BadRequest();
                 }
             }
-            catch(SqlException sqlE)
+            catch (SqlException sqlE)
             {
-                return BadRequest(sqlE.Message);    
+                return BadRequest(sqlE.Message);
             }
             catch (Exception e)
             {
@@ -86,7 +87,7 @@ namespace Patient_Services.Controllers
 
         [HttpPut("UpdateTest/{id}")]
 
-        public IActionResult UpdateTest([FromBody] Test_M test,[FromRoute] int id)
+        public IActionResult UpdateTest([FromBody] Test_M test, [FromRoute] int id)
         {
             try
             {
@@ -100,18 +101,40 @@ namespace Patient_Services.Controllers
                     return BadRequest();
                 }
             }
-            catch(SqlException sqlE)
+            catch (SqlException sqlE)
             {
                 return BadRequest(sqlE.Message);
             }
-            catch(Exception e)
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpDelete("DeleteTest/{id}")]
+        public IActionResult DeleteTest([FromRoute] int id)
+        {
+            try
+            {
+                var q = _logic.DeleteTestByID(id);
+
+
+                return Ok(q);
+            }
+
+
+            catch (SqlException sqlE)
+            {
+                return BadRequest(sqlE.Message);
+            }
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }
         }
 
 
-      
+
 
 
 

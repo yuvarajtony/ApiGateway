@@ -19,19 +19,40 @@ namespace service.Controllers
         public ActionResult Get()
         {
             var Doct = _logic.GetAllDocts();
-            return Ok(Doct);
+            if (Doct != null)
+            {
+                return Ok(Doct);
+            }
+            else
+            {
+                return BadRequest(Doct);
+            }
         }
         [HttpGet("particular/{email}")]
         public ActionResult Getp([FromRoute] string email)
         {
             var users = _logic.GetDoct(email);
-            return Ok(users);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return BadRequest(users);
+            }
         }
         [HttpPost("Add")]
         public ActionResult Post([FromBody] doctorr user)
         {
             var users = _logic.ADD(user);
-            return Ok(users);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return BadRequest(users);
+            }
         }
 
 

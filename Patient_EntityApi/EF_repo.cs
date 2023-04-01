@@ -1,4 +1,5 @@
-﻿using EF_Layer.Entities;
+﻿using System.IO;
+using EF_Layer.Entities;
 using Models;
 
 namespace EF_Layer
@@ -131,7 +132,14 @@ namespace EF_Layer
             var visitDetails = context.VisitDetails.FirstOrDefault(x => x.Id == id);
 
             return visitDetails;
-            
+
+        }
+
+        public VisitDetail GetbyAcceptanceId(int id)
+        {
+            var visit = context.VisitDetails.FirstOrDefault(x => x.AppointmentId == id);
+
+            return visit;
         }
 
 
@@ -239,6 +247,18 @@ namespace EF_Layer
             {
                 return 0;
             }
+        }
+
+        public Test DeleteTest(int TestID)
+        {
+            var test = context.Tests;
+
+            var query = (from p in test
+                         where p.Id == TestID
+                         select p).FirstOrDefault();
+            context.Tests.Remove(query);
+            context.SaveChanges();
+            return query;
         }
 
 

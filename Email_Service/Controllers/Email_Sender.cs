@@ -13,6 +13,10 @@ namespace Email_Service.Controllers
 
             switch(status)
             {
+                case 0:
+                    subject = "Your appointment status of Poseidon healthcare";
+                    body = "Your appointment for visit poseidon health care is booked successfully.\nPlease wait for doctor to accept your appointment";
+                    break;
                 case 1:
                     subject = "Your appointment status of Poseidon healthcare";
                     body = "Your Appointment for visit poseidon health care is accepted.\nKindly check your status on Poseidon Healthcare website";
@@ -24,7 +28,7 @@ namespace Email_Service.Controllers
             }
             MailMessage message = new MailMessage();
 
-            message = new MailMessage("yuvamanikandan15@gmail.com", email);
+            message = new MailMessage("healthcareposeidon@gmail.com", email);
 
             message.Subject = subject;
             message.Body = body;
@@ -35,7 +39,7 @@ namespace Email_Service.Controllers
 
             client.Port = 587;
 
-            client.Credentials = new NetworkCredential("yuvamanikandan15@gmail.com", "eezyhztxehlzszoz");
+            client.Credentials = new NetworkCredential("healthcareposeidon@gmail.com", "xqllhshwscxxwqjp");
 
             client.UseDefaultCredentials = false;
 

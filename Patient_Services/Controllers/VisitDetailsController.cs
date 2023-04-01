@@ -75,5 +75,25 @@ namespace Patient_Services.Controllers
             }
 
         }
+
+        [HttpGet("GetVisitDetailsByAcceptanceId/{id}")]
+        public IActionResult GetVisitDetailsByAcceptanceId([FromRoute] int id)
+        {
+            try
+            {
+                var result = logic.GetVisitByAcceptanceNo(id);
+                return Ok(result);
+            }
+            catch (SqlException sq)
+            {
+                return BadRequest(sq.Message);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
     }
 }

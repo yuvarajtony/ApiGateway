@@ -19,27 +19,55 @@ namespace service.Controllers
         public ActionResult GetAva([FromRoute] string email)
         {
             var users = _logic.GetDoctrAv(email);
-            return Ok(users);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return BadRequest(users);
+            }
         }
         [HttpPost("Add")]
         public ActionResult Post([FromBody] doctor_availability user)
         {
             var users = _logic.ADD(user);
-            return Ok(users);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return BadRequest(users);
+            }
         }
 
         [HttpPut("Update/{email}")]
         public ActionResult Put([FromRoute] string email, [FromBody] doctor_availability u)
         {
             var users = _logic.UpdateDoctorAv(u, email);
-            return Ok(users);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return BadRequest(users);
+            }
         }
 
         [HttpGet("getdocbyStatus/{status}")]
         public ActionResult getdocbystat([FromRoute] bool status)
         {
             var users = _logic.getDocByStatus(status);
-            return Ok(users);
+            if (users != null)
+            {
+                return Ok(users);
+            }
+            else
+            {
+                return BadRequest(users);
+            }
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Patient_Bussiness_Logic
         public Visit_Details_M AddVisitDetails(Visit_Details_M visit_Details_M);
         public List<Visit_Details_M> GetVisitDetailsById(int id);
         public Visit_Details_M GetParticularVisitById(int id);
+        public Visit_Details_M GetVisitByAcceptanceNo(int id);
+
 
         //prescription
         public Prescription_M AddPrescription(Prescription_M prescription_M);
@@ -38,9 +40,12 @@ namespace Patient_Bussiness_Logic
 
         public int GetTestIdByName(string name);
 
-        public Test_M UpdateTest(Test_M test,int Id);
+        public Test_M UpdateTest(Test_M test, int Id);
 
-    
+        public Test DeleteTestByID(int id);
+
+
+
 
 
     }
